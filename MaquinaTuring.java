@@ -24,6 +24,26 @@ public class MaquinaTuring {
         cabecote3++;
     }
 
+    public boolean fitaVazia(char fita[]){
+        boolean vazia =false;
+        for(int i=0; i<fita.length; i++){
+            if(fita[i]=='e'){
+                vazia=true;
+            }else{
+                vazia=false;
+            }
+        }
+        return vazia;
+    }
+    public boolean linguagemReconhecida(String estadoAtual){
+        boolean reconheceu = false;
+        if(estadosFinais.contains(estadoAtual) && fitaVazia(fita1) && fitaVazia(fita2)&& fitaVazia(fita3)){
+            reconheceu=true;
+        }else{
+            reconheceu=false;
+        }
+        return reconheceu;
+    }
 
 
 
