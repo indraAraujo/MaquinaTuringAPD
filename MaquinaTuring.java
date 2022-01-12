@@ -35,6 +35,7 @@ public class MaquinaTuring {
         }
         return vazia;
     }
+
     public boolean linguagemReconhecida(String estadoAtual){
         boolean reconheceu = false;
         if(estadosFinais.contains(estadoAtual) && fitaVazia(fita1) && fitaVazia(fita2)&& fitaVazia(fita3)){
@@ -45,6 +46,35 @@ public class MaquinaTuring {
         return reconheceu;
     }
 
+    public void empilhar1(char caracter){
+        fita1[cabecote1++] = caracter;
+        cabecote1++;
+    }
+
+    public void desempilhar1(){
+        fita1[cabecote1]='e';
+        cabecote1--;
+    }
+
+    public void empilhar2(char caracter){
+        fita2[cabecote2++] = caracter;
+        cabecote2++;
+    }
+
+    public void desempilhar2(){
+        fita2[cabecote2]='e';
+        cabecote2--;
+    }
+
+    public void empilhar3(char caracter){
+        fita3[cabecote3++] = caracter;
+        cabecote3++;
+    }
+
+    public void desempilhar3(){
+        fita3[cabecote3]='e';
+        cabecote3--;
+    }
 
 
 }
