@@ -48,10 +48,28 @@ public class MaquinaTuring {
         return reconheceu;
     }
 
+    public void setStates(ArrayList<String> read){
+    for(int i=0;i<read.size()-1;i=i+7){
+        if(read.get(i).contains(">>")){
+            read.set(i, read.get(i).replaceAll(">>", ">"));
+            if(!this.estadosFinais.contains(read.get(i))){
+                this.estadosFinais.add(read.get(i));
+            }
+            //System.out.println("ESTADO FINAL -> "+ read.get(i));
+        }else if(read.get(i).contains(">")){
+            if(!this.estadosIntermediarios.contains(read.get(i))){
+                this.estadosIntermediarios.add(read.get(i));
+            }
+        //System.out.println("ESTADO INTERMEDIARIO -> "+ read.get(i));
+        } 
+    }
+    System.out.println("Estados Intermediarios => "+this.estadosIntermediarios);
+    System.out.println("Estados Finais => "+this.estadosFinais);
+    }
+
     public static void organizer(ArrayList<String> read) {
         int current = 0;
         int temp = 0;
-        char f;
         for (int count = 0; count < read.size(); count++) {
             String[] words = read.get(count).split(" >");
             for (int i = 0; i < words.length; i++) {

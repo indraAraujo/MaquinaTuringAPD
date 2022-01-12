@@ -1,4 +1,4 @@
 < s0 > < 0 > < epsilon > < epsilon > < s0 > < 0 > < epsilon >
 < s0 > < 1 > < epsilon > < epsilon > < s0 > < epsilon > < 1 >
 < s0 > < > < epsilon > < epsilon > < s1 > < epsilon > < epsilon >
-< s1 > < > < 0 > < 1 > < s1 > < epsilon > < epsilon >
+<< s1 >> < > < 0 > < 1 > < s1 > < epsilon > < epsilon >
