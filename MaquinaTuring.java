@@ -46,16 +46,6 @@ public class MaquinaTuring {
         return reconheceu;
     }
 
-    public void empilhar1(char caracter){
-        fita1[cabecote1++] = caracter;
-        cabecote1++;
-    }
-
-    public void desempilhar1(){
-        fita1[cabecote1]='e';
-        cabecote1--;
-    }
-
     public void empilhar2(char caracter){
         fita2[cabecote2++] = caracter;
         cabecote2++;
