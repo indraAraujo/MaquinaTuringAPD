@@ -15,6 +15,7 @@ public class MaquinaTuring {
     ArrayList<String> estadosIntermediarios = new ArrayList<>();
     ArrayList<String> estadosFinais = new ArrayList<>();
 
+    
     public void primeiraTransicaoPadrao(){
         fita1[cabecote1] = 'e'; //palavra vazia inserida
         cabecote1++;
@@ -24,6 +25,13 @@ public class MaquinaTuring {
         cabecote3++;
     }
 
+    public void popularEntrada(String entrada){
+        char ent[] = entrada.toCharArray();
+        for(int i=0; i<ent.length; i++){
+            fita1[i++] = ent[i];
+        }
+    }
+    
     public boolean fitaVazia(char fita[]){
         boolean vazia =false;
         for(int i=0; i<fita.length; i++){
@@ -46,24 +54,54 @@ public class MaquinaTuring {
         return reconheceu;
     }
 
-    public void empilhar2(char caracter){
-        fita2[cabecote2++] = caracter;
-        cabecote2++;
+    public void empilhar(char caracter, int fita){
+        switch(fita){
+            case 2:
+                fita2[cabecote2++] = caracter;
+                cabecote2++;
+                break;
+            case 3:
+                fita3[cabecote3++] = caracter;
+                cabecote3++;
+                break;
+        }
+        
     }
 
-    public void desempilhar2(){
-        fita2[cabecote2]='e';
-        cabecote2--;
+    public void desempilhar(int fita){
+        switch(fita){
+            case 2:
+                fita2[cabecote2]='e';
+                cabecote2--;
+                break;
+            case 3:
+                fita3[cabecote3]='e';
+                cabecote3--;
+                break;
+        }
+        
     }
 
-    public void empilhar3(char caracter){
-        fita3[cabecote3++] = caracter;
-        cabecote3++;
+    public char getTopoPilha(int fita){
+        char topo ='e';
+        switch(fita){
+            case 2: 
+               topo = fita2[cabecote2]; 
+               break;
+            case 3:
+                topo = fita3[cabecote3];
+                break;
+
+        }
+        return topo;
     }
 
-    public void desempilhar3(){
-        fita3[cabecote3]='e';
-        cabecote3--;
+    public char lerEntrada(){
+        char caracter = fita1[cabecote1];
+        fita1[cabecote1]='e';
+        cabecote1++;
+
+        return caracter;
     }
 
 
