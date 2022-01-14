@@ -18,19 +18,22 @@ public class Reader {
 		}
 	} 
 
-	public ArrayList<String> readFile ()
-	{
+	public ArrayList<String> readFile (MaquinaTuring MT){
 		ArrayList<String> read = new ArrayList<String>();
 		
 		while (scanner.hasNext()) {
 			String line = scanner.nextLine();
-			String[] words = line.split(">");
+			String[] words = line.split("< ");
 			for (int i = 0; i < words.length; i++) {
-				if (!words[i].trim().isEmpty())
-					read.add (words[i]);
+				if (!words[i].trim().isEmpty()){
+					if(!words[i].contains("<")){
+						read.add (words[i]);
+					}
+				}
 			}
 		}
-		
+		MT.setStates(read);
+		MaquinaTuring.organizer(read);
 		return read;
 	}
 
