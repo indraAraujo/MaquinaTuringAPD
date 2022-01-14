@@ -25,13 +25,6 @@ public class MaquinaTuring {
         cabecote3++;
     }
 
-    public void popularEntrada(String entrada){
-        char ent[] = entrada.toCharArray();
-        for(int i=0; i<ent.length; i++){
-            fita1[i++] = ent[i];
-        }
-    }
-    
     public boolean fitaVazia(char fita[]){
         boolean vazia =false;
         for(int i=0; i<fita.length; i++){
@@ -57,7 +50,7 @@ public class MaquinaTuring {
     public void empilhar(char caracter, int fita){
         switch(fita){
             case 2:
-                fita2[cabecote2++] = caracter;
+                fita2[cabecote2] = caracter;
                 cabecote2++;
                 break;
             case 3:
