@@ -112,27 +112,22 @@ public class MaquinaTuring {
     }
 
     public void setStates(ArrayList<String> read){
+    this.estadoInicial = read.get(0);
     for(int i=0;i<read.size()-1;i=i+7){
         if(read.get(i).contains(">>")){
             read.set(i, read.get(i).replaceAll(">>", ">"));
             if(!this.estadosFinais.contains(read.get(i))){
                 this.estadosFinais.add(read.get(i));
             }
-            //System.out.println("ESTADO FINAL -> "+ read.get(i));
-        }else if(read.get(i).contains(">")){
-            if(!this.estadosIntermediarios.contains(read.get(i))){
-                this.estadosIntermediarios.add(read.get(i));
-            }
-        //System.out.println("ESTADO INTERMEDIARIO -> "+ read.get(i));
-        } 
+        }
     }
-    System.out.println("Estados Intermediarios => "+this.estadosIntermediarios);
+    System.out.println("Estado Inicial => "+this.estadoInicial);
     System.out.println("Estados Finais => "+this.estadosFinais);
     }
 
     public String transicao(String estadoAtual ){
         String proxEstado="";
-        for(....){
+       /* for(....){
             if(estadoAtual = m[i][0] && lerEntrada() == m[i][1] && getTopoPilha(2) == m[i][2] && getTopoPilha(3)==m[i][3]){
                 desempilhar(2);
                 desempilhar(3);
@@ -141,14 +136,23 @@ public class MaquinaTuring {
                 proxEstado = m[i][4];
                 break;
             }
-        }
+        }*/
         return proxEstado;
     }
 
+    public static void printMat(String[][] m ){
+        int x,y;
+        for(y=0;y<4;y++){
+            for(x=0;x<7;x++){
+                System.out.print("["+m[y][x]+"]");
+            }System.out.println("");
+        }
+    }
 
     public static void organizer(ArrayList<String> read) {
         int current = 0;
         int temp = 0;
+        String[][] m = new String[(read.size()/7)+1][8];
         for (int count = 0; count < read.size(); count++) {
             String[] words = read.get(count).split(" >");
             for (int i = 0; i < words.length; i++) {
@@ -156,34 +160,37 @@ public class MaquinaTuring {
                 temp = count-(current*7);
                 switch (temp) {
                     case 0:
-                    System.out.println("-----------------------------");
-                        System.out.println("estado-atual: "+words[i]);
+                        m[current][temp] = words[i];
                         break;
                     case 1:
-                        System.out.println("simbolo-lido: "+words[i]);
+                        if(words[i].equals("> "))
+                            words[i] = "";
+                        m[current][temp] = words[i];
                         break;
                     case 2:
-                        System.out.println("topo-pilha1: "+words[i]);
+                        m[current][temp] = words[i];
                         break;
                     case 3:
-                        System.out.println("topo-pilha2: "+words[i]);
+                        m[current][temp] = words[i];
                         break;
                     case 4:
-                        System.out.println("proximo-estado: "+words[i]);
+                        m[current][temp] = words[i];
                         break;
                     case 5:
-                        System.out.println("escrita-pilha1: "+words[i]);
+                        m[current][temp] = words[i];
                         break;
                     case 6:
+                        m[current][temp] = words[i];
                         current++;
-                        System.out.println("escrita-pilha2: "+words[i]);
                         break;
                 }
 
             }
             }
         }
-        System.out.println("-----------------------------");
+        System.out.println("******************** MATRIZ *******************");
+        printMat(m);
+        System.out.println("********************* END *********************");
     }
 
     public void configuracao(String estado_atual){

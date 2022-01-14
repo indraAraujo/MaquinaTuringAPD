@@ -9,7 +9,7 @@ public class Main{
         String estado_atual;
 
         reader.readFile(MT);
-
+/*
         System.out.println("Insira uma palavra para ser reconhecida \n");
         entrada = input.nextLine();
 
@@ -23,7 +23,7 @@ public class Main{
             temp = MT.transicao(estado_atual);
             estado_atual = temp;
         }
-        
+  */      
 
 
     }
