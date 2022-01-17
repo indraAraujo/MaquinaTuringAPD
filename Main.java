@@ -30,9 +30,11 @@ public class Main
 			estadoAtual = MT.transicao(estadoAtual);
 		} while (estadoAtual != null && !MT.linguagemReconhecida(estadoAtual));
 		
-		if (estadoAtual != null)
+		if (estadoAtual != null){
+            MT.printConfiguration(estadoAtual);
 			System.out.println("\n--> A palavra pertence à liguagem.");
-		else
+        }else{
 			System.out.println("\n--> A palavra não pertence à liguagem.");
+    }
     }
 }
