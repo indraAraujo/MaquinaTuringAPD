@@ -126,7 +126,6 @@ public class MaquinaTuring
         
         if (estadosFinais.contains(estadoAtual) && fitaVazia(fita1) && fitaVazia(fita2) && fitaVazia(fita3))
             result = true;
-            printConfiguration(estadoAtual);
 
         return result;
     }

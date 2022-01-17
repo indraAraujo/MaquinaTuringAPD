@@ -16,7 +16,7 @@ public class Main
         MT.printConvertedTransitions(mtTransitions);
         System.out.print("Insira uma palavra para ser reconhecida: ");
         // entrada = in.nextLine();
-        String entrada = "00001111";
+        String entrada = "010010110110";
         MT.setEntrada(entrada);
 
         MT.primeiraTransicaoPadrao();
