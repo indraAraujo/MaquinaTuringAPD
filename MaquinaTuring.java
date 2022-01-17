@@ -126,6 +126,7 @@ public class MaquinaTuring
         
         if (estadosFinais.contains(estadoAtual) && fitaVazia(fita1) && fitaVazia(fita2) && fitaVazia(fita3))
             result = true;
+            printConfiguration(estadoAtual);
 
         return result;
     }
@@ -230,6 +231,10 @@ public class MaquinaTuring
 				if(m[i][3].charAt(0) != 'e') desempilhar(3);
 				if(m[i][5].charAt(0) != 'e') empilhar(m[i][5].charAt(0), 2);
 				if(m[i][6].charAt(0) != 'e') empilhar(m[i][6].charAt(0), 3);
+                if(m[i][0].equals("s0") && m[i][4].equals("s1")){
+                    cabecote2--;
+                    cabecote3--;
+                }
 				proxEstado = m[i][4];
 				break;
             }
