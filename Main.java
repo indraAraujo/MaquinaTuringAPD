@@ -15,8 +15,11 @@ public class Main
         LinkedList mtTransitions = MT.mapTransitionsFunctions (afp);
         MT.printConvertedTransitions(mtTransitions);
         System.out.print("Insira uma palavra para ser reconhecida: ");
-        // entrada = in.nextLine();
-        String entrada = "010010110110";
+        String entrada = input.nextLine();
+        System.out.println("");
+        System.out.println("------------------------------------------------LEGENDA------------------------------------------------");
+        System.out.println("K = Estado Atual | CE = Fita à esquerda do cabeçote | C = Cabeçote | CD = Fita à direita do cabeçote");
+        System.out.println("-------------------------------------------------------------------------------------------------------");
         MT.setEntrada(entrada);
 
         MT.primeiraTransicaoPadrao();

@@ -123,7 +123,6 @@ public class MaquinaTuring
     public boolean linguagemReconhecida(String estadoAtual)
     {
         boolean result = false;
-        
         if (estadosFinais.contains(estadoAtual) && fitaVazia(fita1) && fitaVazia(fita2) && fitaVazia(fita3))
             result = true;
 
@@ -224,16 +223,18 @@ public class MaquinaTuring
         String proxEstado = null;
         
         for (int i = 0; i < Reader.numberOfTransitions; i++){
+            //System.out.println(estadoAtual+","+checarFita1()+","+getTopoPilha(2)+","+getTopoPilha(3));
+            //System.out.println(m[i][0]+","+m[i][1]+","+m[i][2]+m[i][3]);
             if(estadoAtual.equals(m[i][0]) && isSame(m[i][1], checarFita1()) && isSame(m[i][2], getTopoPilha(2)) && isSame(m[i][3], getTopoPilha(3))){
+                if(checarFita1() == 'e' && getTopoPilha(2) == 'e' && getTopoPilha(3) == 'e' ){
+                    desempilhar(2);
+                    desempilhar(3);
+                }
 				lerEntrada();
 				if(m[i][2].charAt(0) != 'e') desempilhar(2);
 				if(m[i][3].charAt(0) != 'e') desempilhar(3);
 				if(m[i][5].charAt(0) != 'e') empilhar(m[i][5].charAt(0), 2);
 				if(m[i][6].charAt(0) != 'e') empilhar(m[i][6].charAt(0), 3);
-                if(m[i][0].equals("s0") && m[i][4].equals("s1")){
-                    cabecote2--;
-                    cabecote3--;
-                }
 				proxEstado = m[i][4];
 				break;
             }
