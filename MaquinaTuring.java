@@ -223,8 +223,7 @@ public class MaquinaTuring
         String proxEstado = null;
         
         for (int i = 0; i < Reader.numberOfTransitions; i++){
-            //System.out.println(estadoAtual+","+checarFita1()+","+getTopoPilha(2)+","+getTopoPilha(3));
-            //System.out.println(m[i][0]+","+m[i][1]+","+m[i][2]+m[i][3]);
+
             if(estadoAtual.equals(m[i][0]) && isSame(m[i][1], checarFita1()) && isSame(m[i][2], getTopoPilha(2)) && isSame(m[i][3], getTopoPilha(3))){
                 if(checarFita1() == 'e' && getTopoPilha(2) == 'e' && getTopoPilha(3) == 'e' ){
                     desempilhar(2);
